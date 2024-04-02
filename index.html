@@ -5,51 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FYP GPT Website</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
   </head>
+
   <body>
     <main>
-        <h1>FYP GPT Website</h1>  
+        <h1>ChatGPT Learning Tool</h1>  
+        <h2>Type a question into the box to learn about how ChatGPT would answer it!</h2>
+        <a href="/infopage">More Info</a>
         <form action="">
-            <input type="text" name="message" id="message">
-            <button type="submit">Send</button>
+            <textarea id="message"></textarea>
+            <button type="submit">Submit Question</button>
         </form>
-        <div id="chatlog">
-
-        </div>
+        <div id="info"></div>
     </main>
+
+    <!--Handling user interaction-->
 	<script>
-        const chatLog = document.getElementById('chatlog');
+        //Chat messages array
+        let messages = []
+
+        //DOM elements
+        const info = document.getElementById('info');
         const message = document.getElementById('message');
         const form = document.querySelector('form');
+
+        //Event listener for form submmision
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const messageText = message.value;
+
+            //Extracting user message and putting it into the correct format, and adding it to the array. Then clearing input field
+            const submittedQuestion = message.value;
             message.value = '';
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message');
-            messageElement.classList.add('message--sent');
-            messageElement.innerHTML = `<div class="message__text">You: ${messageText}</div>`;
-            chatLog.appendChild(messageElement);
-            chatLog.scrollTop = chatLog.scrollHeight;
+
+            //Display user's question on screen
+            const question = document.createElement('div');
+            question.innerHTML = `<div class="userQuestion"><b>Your Question:</b> ${submittedQuestion}\n\n</div>`;
+            info.appendChild(question);
+            info.scrollTop = info.scrollHeight;
+
+            //Send user message to the server and receive AI response
             fetch('http://localhost:3000', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    message: messageText
+                    message: submittedQuestion
                 })
             })
             .then(res => res.json())
             .then(data => {
-                const messageElement = document.createElement('div');
-                messageElement.classList.add('message');
-                messageElement.classList.add('message--received');
-                messageElement.innerHTML = `<div class="message__text">AI: ${data.completion.content}</div>`;
-                chatLog.appendChild(messageElement);
-                chatLog.scrollTop = chatLog.scrollHeight;
+                //Display Answer AI response on screen
+                const answer = document.createElement('div');
+                answer.innerHTML = `<div class="answer"><b>ChatGPT's answer to your question is:</b> <br> ${data.answer}\n</div>`;
+                info.appendChild(answer);
+                info.scrollTop = info.scrollHeight;
+
+                //Display Keywords AI response on screen
+                const keywords = document.createElement('div');
+                keywords.innerHTML = `<div class="keywords"><b>The Top 10 Key Words/Phrases in ChatGPT's answer are:</b> ${data.keywords.content}\n\n</div>`;
+                info.appendChild(keywords);
+                info.scrollTop = info.scrollHeight;
+
+                //Display Sentiment Analysis info on screen
+                const sentimentAnalysis = document.createElement('div');
+                sentimentAnalysis.innerHTML = `<div class="sentiment"><b>The sentiment analysis result of ChatGPT's answer is: </b> ${data.sentiment.content}\n\n</div>`;
+                info.appendChild(sentimentAnalysis);
+                info.scrollTop = info.scrollHeight;
+
+                //Display sentence length info on screen
+                const sentenceLength = document.createElement('div');
+                sentenceLength.innerHTML = `<div class="sentenceLength"><b>The average words per sentence in ChatGPT's answer is:</b> ${data.averageSentenceLength}\n\n</div>`;
+                info.appendChild(sentenceLength);
+                info.scrollTop = info.scrollHeight;
+
+                //Display Flesch Reading Ease info on screen
+                const readingEase = document.createElement('div');
+                readingEase.innerHTML = `<div class="readingEase"><b>The Flesch Reading Ease score of ChatGPT's answer is: </b> ${data.fleschReadingEase}\n\n</div>`;
+                info.appendChild(readingEase);
+                info.scrollTop = info.scrollHeight;
+
+                //Display Flesch-Kincaid Grade Level info on screen
+                const gradeLevel = document.createElement('div');
+                gradeLevel.innerHTML = `<div class="gradeLevel"><b>The Flesch-Kincaid Grade Level (in terms of Irish school years) of ChatGPT's answer is: </b> ${data.fleschKincaidGradeLevelIrish}\n\n</div>`;
+                info.appendChild(gradeLevel);
+                info.scrollTop = info.scrollHeight;
             })
         })
     </script>

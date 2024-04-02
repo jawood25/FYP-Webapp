@@ -1,0 +1,206 @@
+h1 {
+    color: lightskyblue;
+    margin: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 55px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: darkgray;
+    margin: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+body {
+    background-color:  #fffff3;
+}
+
+form {
+    margin-left: 40%;
+    margin-top: 25px;
+    vertical-align: top;
+    text-align: left
+}
+
+.userQuestion {
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.answer {
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-right: 20px;
+    padding: 5px;
+    white-space: pre-wrap;
+    padding-bottom: 20px;
+}
+
+.keywords {
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-right: 20px;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+.sentiment {
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-right: 20px;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+.sentenceLength {
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-right: 20px;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+.readingEase {
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-right: 20px;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+.gradeLevel {
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 15px;
+    margin-left: 18px;
+    margin-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 30px;
+    border-bottom: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+#info {
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    margin-top: 15px;
+    background-color: white;
+}
+
+a:link, a:visited {
+    background-color: lightgrey;
+    color: black;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    top: 20px;
+    position: absolute;
+}
+
+a:hover, a:active {
+    background-color: white;
+}
+
+textarea {
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 15px;
+    height: 60px;
+    width: 350px;
+    resize: none;
+}
+
+button {
+    position: absolute;
+    margin-top: 22px;
+    margin-left: 5px;
+}
+
+.infopar {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.infoheading1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightskyblue;
+    font-size: 30px;
+    margin-bottom: 3px;
+    margin-top: 12px;
+}
+
+.infoheading2 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightskyblue;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.infopagebox1 {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    position: relative;
+    left: 20%;
+    margin-bottom: 15px;
+    width: 60%;
+    background-color: white;
+    overflow: hidden;
+}
+
+.infopagebox2container {
+    width: 60%;
+    left: 20%;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.infopagebox2 {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    width: 40%;
+    background-color: white;
+    float: left;
+    margin-left: 5%;
+    margin-right: 2%;
+}
+
+.bigboxparcontainer {
+    float: left;
+    width: 40%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
